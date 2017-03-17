@@ -10,21 +10,74 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.dev_station.shekhar.agecalculator.MainActivity">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:text=""
-        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:text="Your Date of Birth" />
+   <Button
+       android:id="@+id/btnStartDate"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentLeft="true"
+       android:layout_alignParentStart="true"
+       android:layout_alignParentTop="true"
+       android:layout_marginLeft="11dp"
+       android:layout_marginStart="11dp"
+       android:layout_marginTop="29dp"
+       android:width="150dp"
+       android:text="Start Date" />
+
+   <TextView
+       android:id="@+id/startDateDisplay"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginLeft="25dp"
+       android:layout_marginStart="25dp"
+       android:text="TextView"
+       android:layout_alignBaseline="@+id/btnStartDate"
+       android:layout_alignBottom="@+id/btnStartDate"
+       android:layout_toRightOf="@+id/btnStartDate"
+       android:layout_toEndOf="@+id/btnStartDate" />
+
+   <Button
+       android:id="@+id/btnEndDate"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="24dp"
+       android:width="150dp"
+       android:text="End Date"
+       android:layout_below="@+id/btnStartDate"
+       android:layout_alignLeft="@+id/btnStartDate"
+       android:layout_alignStart="@+id/btnStartDate" />
+
+   <TextView
+       android:id="@+id/endDateDisplay"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="TextView"
+       android:layout_alignBaseline="@+id/btnEndDate"
+       android:layout_alignBottom="@+id/btnEndDate"
+       android:layout_alignLeft="@+id/startDateDisplay"
+       android:layout_alignStart="@+id/startDateDisplay" />
+
+   <Button
+       android:id="@+id/btnCalculateAge"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="30dp"
+       android:width="150dp"
+       android:text="Calculate Age"
+       android:layout_below="@+id/btnEndDate"
+       android:layout_alignLeft="@+id/btnEndDate"
+       android:layout_alignStart="@+id/btnEndDate" />
+
+   <TextView
+       android:id="@+id/txtResult"
+       android:textSize="@dimen/font_size"
+       android:textColor="@color/colorPrimaryDark"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="TextView"
+       android:layout_marginLeft="16dp"
+       android:layout_marginStart="16dp"
+       android:layout_centerVertical="true"
+       android:layout_alignLeft="@+id/btnCalculateAge"
+       android:layout_alignStart="@+id/btnCalculateAge" />
 </RelativeLayout>
