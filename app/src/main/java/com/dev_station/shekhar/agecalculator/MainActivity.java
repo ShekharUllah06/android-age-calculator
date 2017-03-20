@@ -137,6 +137,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView startDateDisplay;
     private TextView endDateDisplay;
     private TextView txtResult;
+    private TextView txtMonthDays;
+    private TextView txtWeekDays;
+    private TextView txtTotalDays;
     private Button startPickDate;
     private Button endPickDate;
     private Button btnCalculate;
@@ -181,17 +184,27 @@ public class MainActivity extends AppCompatActivity {
         });
 
         txtResult = (TextView) findViewById(R.id.txtResult);
+        txtMonthDays = (TextView) findViewById(R.id.txtMonthDay);
+        txtWeekDays = (TextView) findViewById(R.id.txtWeekDays);
+        txtTotalDays = (TextView) findViewById(R.id.txtTotalDays);
         btnCalculate = (Button) findViewById(R.id.btnCalculateAge);
         btnCalculate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //DateCalculator dateCalculator=DateCalculator.calculateAge(6,9,1988);
-                //txtResult.setText(dateCalculator.getYear());
-               //startDate.get(Calendar.DATE);
-                DateCalculator dateCaculator=DateCalculator.calculateAge(startDate,endDate);
+                Calendar startDate1=Calendar.getInstance();
+
+                startDate1.set(startDate.get(Calendar.YEAR), startDate.get(Calendar.MONTH)+1, startDate.get(Calendar.DAY_OF_MONTH));
+                Calendar endDate1=Calendar.getInstance();
+                endDate1.set(endDate.get(Calendar.YEAR), endDate.get(Calendar.MONTH)+1, endDate.get(Calendar.DAY_OF_MONTH));
+
+                DateCalculator dateCaculator=DateCalculator.calculateAge(startDate1,endDate1);
                 String age = "Age: " + dateCaculator.getYear() + " Years " + dateCaculator.getMonth() + " Months " + dateCaculator.getDay()+ " Days";
+                int num_weeks = (int) dateCaculator.getTotalDay()/7;
+                int num_months = dateCaculator.getYear()*12 + dateCaculator.getMonth();
                 System.out.println(dateCaculator.getYear());
                 txtResult.setText(age);
-
+                txtTotalDays.setText(""+dateCaculator.getTotalDay()+" Days");
+                txtWeekDays.setText(""+num_weeks+" Weeks " + dateCaculator.getTotalDay()%7 + " Days");
+                txtMonthDays.setText(""+num_months+" Months "+dateCaculator.getDay()+" Days ");
 
                 //showDateDialog(endDateDisplay, endDate);
             }
